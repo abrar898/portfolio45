@@ -179,13 +179,22 @@ export default function Home() {
       }
 
       /* ── Scroll Reveals ── */
-      document.querySelectorAll(".reveal-title .word").forEach((word) => {
-        gsap.from(word, {
-          y: "110%",
-          duration: 1.0,
-          ease: "expo.out",
-          scrollTrigger: { trigger: word.parentElement!, start: "top 85%" },
-        });
+      document.querySelectorAll(".reveal-title").forEach((title) => {
+        const words = title.querySelectorAll(".word");
+        gsap.fromTo(words,
+          { y: "110%" },
+          {
+            y: "0%",
+            duration: 1.1,
+            ease: "expo.out",
+            stagger: 0.08,
+            scrollTrigger: {
+              trigger: title,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
       });
       gsap.utils.toArray<Element>(".section-label").forEach((el) => {
         gsap.from(el, {
@@ -309,13 +318,24 @@ export default function Home() {
       });
 
       /* Contact Form big text reveals */
-      gsap.from(".contact-big .word", {
-        y: "110%",
-        duration: 1.1,
-        ease: "expo.out",
-        stagger: 0.06,
-        scrollTrigger: { trigger: ".contact-big", start: "top 82%" },
-      });
+      const contactBig = document.querySelector(".contact-big");
+      if (contactBig) {
+        const words = contactBig.querySelectorAll(".word");
+        gsap.fromTo(words,
+          { y: "110%" },
+          {
+            y: "0%",
+            duration: 1.1,
+            ease: "expo.out",
+            stagger: 0.06,
+            scrollTrigger: {
+              trigger: contactBig,
+              start: "top 82%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
       gsap.from(".contact-form-wrap", {
         opacity: 0,
         y: 40,

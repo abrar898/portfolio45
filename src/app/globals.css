@@ -362,7 +362,11 @@ body {
   color: var(--c-text);
 }
 .section-title .line { display: block; overflow: hidden; }
-.section-title .word { display: inline-block; }
+.section-title .word {
+  display: inline-block;
+  transform: translateY(110%);
+  will-change: transform;
+}
 
 /* ━━━━ MARQUEE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .marquee-track {
@@ -806,7 +810,11 @@ a.project-arrow:hover {
 }
 .contact-big .accent { color: var(--c-ember); }
 .contact-big .line { display: block; overflow: hidden; }
-.contact-big .word { display: inline-block; }
+.contact-big .word {
+  display: inline-block;
+  transform: translateY(110%);
+  will-change: transform;
+}
 .contact-links {
   display: flex; gap: 0;
   border-top: 1px solid var(--c-border);
